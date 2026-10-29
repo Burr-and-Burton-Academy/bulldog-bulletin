@@ -1,4 +1,4 @@
-[project]
+[workspace]
 name = "bulldog-bulletin"
 version = "0.1.0"
 description = "Add a short description here"
@@ -14,9 +14,9 @@ build-assets = "cp -r static/* public/"
 build-sass = "mkdir -p public/assets && sass styles/main.scss public/assets/site.css"
 build-content = "python build.py"
 
-build = { depends_on = [ "ensure-public", "build-assets", "build-sass", "build-content" ] }
+build = { depends-on = [ "ensure-public", "build-assets", "build-sass", "build-content" ] }
 
-serve = { depends_on = [ "build" ], cmd = "python3 -m http.server 8000 -d public" }
+serve = { depends-on = [ "build" ], cmd = "python3 -m http.server 8000 -d public" }
 
 [dependencies]
 python = "3.12.0.*"
