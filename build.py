@@ -1,8 +1,8 @@
 from slugify import slugify
-from utils import directus
+from utils import directus, html
 from utils.gen import compile_template, write_sitemap
 
-data = directus.everything()
+data = html.everything()
 
 compile_template('index', '/', data)
 
@@ -30,7 +30,7 @@ for issue in data['issues']:
         article for article in data['articles']
         if
         article['issue'] is not None
-        and article['issue']['id'] == issue['id']
+        and article['issue'] == issue['id']
     ]
 
     compile_template(

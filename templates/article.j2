@@ -37,7 +37,7 @@
         <div class="author-display">
             <div class="text-content">
                 <p class="author">{{ article.author }}</p>
-                <p><time datetime="{{ article.published_at }}">{{ fmt_date(article.published_at) }}</time></p>
+                <p><time datetime="{{ article.published_at }}">{{ fmt_date(article.published_at) if article.published_at else 'Unpublished' }}</time></p>
             </div>
         </div>
     </header>
