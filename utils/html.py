@@ -23,6 +23,10 @@ def everything():
     if exists('content/issues'):
         for i in listdir('content/issues'):
             with open('content/issues/' + i) as f:
-                issue = json.load(f)
-                data['issues'].append(issue)
+                data['issues'].append(json.load(f))
+
+    if exists('content/columns'):
+        for c in listdir('content/columns'):
+            with open('content/columns/' + c) as f:
+                data['columns'].append(json.load(f))
     return data
